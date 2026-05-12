@@ -1011,21 +1011,25 @@
     padding-bottom: 60px;
     border-bottom: 1px solid rgba(245, 241, 234, 0.12);
   }
-  .footer-brand {
+    .footer-brand {
     font-family: var(--serif);
     font-weight: 300;
     font-size: 36px;
     color: var(--cream);
     letter-spacing: -0.01em;
+    line-height: 1.1;
+    white-space: nowrap;
   }
   .footer-brand em {
     font-style: italic;
     color: var(--copper);
-    font-size: 14px;
+    font-size: 13px;
     font-weight: 400;
     display: block;
-    margin-top: 8px;
-    letter-spacing: 0;
+    margin-top: 10px;
+    letter-spacing: 0.08em;
+    text-transform: uppercase;
+    white-space: normal;
   }
   .footer-tagline {
     color: rgba(245, 241, 234, 0.55);
@@ -1185,6 +1189,28 @@
     margin-right: 6px;
     color: var(--copper);
   }
+
+  /* Bayrak ikonları */
+  .lang-flag {
+    font-size: 14px;
+    line-height: 1;
+    display: inline-block;
+    margin-right: 0;
+  }
+  .lang-toggle .lang-flag {
+    margin-right: 4px;
+  }
+  .lang-link {
+    display: flex !important;
+    align-items: center;
+    gap: 10px;
+  }
+  .lang-link .lang-code {
+    font-family: var(--sans);
+    font-size: 11px;
+    font-weight: 500;
+    letter-spacing: 0.2em;
+  }
   @media (max-width: 600px) {
     .lang-switcher { margin-right: 12px; }
     .lang-toggle { padding: 6px 10px; font-size: 10px; }
@@ -1219,18 +1245,19 @@
     <!-- Dil Seçici -->
     <div class="lang-switcher" data-current="tr">
       <button class="lang-toggle" aria-label="Dil seç">
+        <span class="lang-flag">🇹🇷</span>
         <span class="lang-current">TR</span>
         <svg width="10" height="6" viewBox="0 0 10 6" fill="none" xmlns="http://www.w3.org/2000/svg"><path d="M1 1L5 5L9 1" stroke="currentColor" stroke-width="1.2" stroke-linecap="round"/></svg>
       </button>
       <div class="lang-menu">
-        <a href="#" class="lang-link active" hreflang="tr">TR</a>
-        <a href="./en/" class="lang-link" hreflang="en">EN</a>
-        <a href="./fr/" class="lang-link" hreflang="fr">FR</a>
-        <a href="./de/" class="lang-link" hreflang="de">DE</a>
-        <a href="./nl/" class="lang-link" hreflang="nl">NL</a>
-        <a href="./ja/" class="lang-link" hreflang="ja">JA</a>
-        <a href="./zh/" class="lang-link" hreflang="zh">ZH</a>
-        <a href="./ru/" class="lang-link" hreflang="ru">RU</a>
+        <a href="#" class="lang-link active" hreflang="tr"><span class="lang-flag">🇹🇷</span><span class="lang-code">TR</span></a>
+        <a href="./en/" class="lang-link" hreflang="en"><span class="lang-flag">🇬🇧</span><span class="lang-code">EN</span></a>
+        <a href="./fr/" class="lang-link" hreflang="fr"><span class="lang-flag">🇫🇷</span><span class="lang-code">FR</span></a>
+        <a href="./de/" class="lang-link" hreflang="de"><span class="lang-flag">🇩🇪</span><span class="lang-code">DE</span></a>
+        <a href="./nl/" class="lang-link" hreflang="nl"><span class="lang-flag">🇳🇱</span><span class="lang-code">NL</span></a>
+        <a href="./ja/" class="lang-link" hreflang="ja"><span class="lang-flag">🇯🇵</span><span class="lang-code">JA</span></a>
+        <a href="./zh/" class="lang-link" hreflang="zh"><span class="lang-flag">🇨🇳</span><span class="lang-code">ZH</span></a>
+        <a href="./ru/" class="lang-link" hreflang="ru"><span class="lang-flag">🇷🇺</span><span class="lang-code">RU</span></a>
       </div>
     </div>
   <a href="#iletisim" class="nav-cta">İletişim →</a>
@@ -1829,7 +1856,7 @@
   <div class="footer-inner">
     <div class="footer-top">
       <div>
-        <div class="footer-brand">Kurt <em style="font-style:italic;">GMG · Gayrimenkul Geliştirme</em></div>
+        <div class="footer-brand">Kurt GMG <em>Gayrimenkul Geliştirme</em></div>
         <p class="footer-tagline">
           Kurt Grubu'nun gayrimenkul kolu. 1995'ten bu yana İstanbul, Trakya ve Avrupa'da arsa toplar, geliştirir ve değerlendirir.
         </p>
