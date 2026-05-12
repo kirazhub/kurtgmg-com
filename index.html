@@ -921,7 +921,10 @@
     color: var(--navy);
     line-height: 1.4;
     letter-spacing: -0.01em;
+    transition: color 0.3s ease;
   }
+  .contact-block a:hover { color: var(--copper); }
+  .contact-block a[href*="wa.me"]:hover { color: #25D366; }
 
   .form {
     display: grid;
@@ -1567,16 +1570,12 @@
 
       <div class="contact-info">
         <div class="contact-block">
-          <div class="contact-block-label">Genel Merkez</div>
-          <p>İstanbul, Türkiye<br><em style="font-style:italic;color:var(--copper);">Adres bilgisi yakında</em></p>
+          <div class="contact-block-label">E-posta</div>
+          <a href="mailto:kurtgmg@kurtgmg.com">kurtgmg@kurtgmg.com</a>
         </div>
         <div class="contact-block">
-          <div class="contact-block-label">Yatırımcı İlişkileri</div>
-          <a href="mailto:yatirim@kurtgmg.com">yatirim@kurtgmg.com</a>
-        </div>
-        <div class="contact-block">
-          <div class="contact-block-label">Genel İletişim</div>
-          <a href="mailto:info@kurtgmg.com">info@kurtgmg.com</a>
+          <div class="contact-block-label">WhatsApp Hattı</div>
+          <a href="https://wa.me/905323091383" target="_blank" rel="noopener">+90 532 309 13 83</a>
         </div>
       </div>
     </div>
@@ -1653,8 +1652,8 @@
       <div class="footer-col">
         <h4>İletişim</h4>
         <ul>
-          <li><a href="mailto:info@kurtgmg.com">info@kurtgmg.com</a></li>
-          <li><a href="mailto:yatirim@kurtgmg.com">yatirim@kurtgmg.com</a></li>
+          <li><a href="mailto:kurtgmg@kurtgmg.com">kurtgmg@kurtgmg.com</a></li>
+          <li><a href="https://wa.me/905323091383" target="_blank" rel="noopener">WhatsApp · +90 532 309 13 83</a></li>
           <li><a href="#iletisim">İletişim Formu</a></li>
         </ul>
       </div>
