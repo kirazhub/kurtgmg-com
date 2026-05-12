@@ -1,0 +1,1659 @@
+<!DOCTYPE html>
+<html lang="tr">
+<head>
+<meta charset="UTF-8" />
+<meta name="viewport" content="width=device-width, initial-scale=1.0" />
+<meta name="description" content="Kurt GMG — 30 yıldır toprağı vizyona dönüştüren gayrimenkul geliştirme şirketi. İstanbul, Trakya ve Avrupa'da arsa toplama, proje geliştirme ve kat karşılığı yatırımları." />
+<meta name="theme-color" content="#0E1E3A" />
+<title>Kurt GMG — Toprağı Zamanla Terbiye Ederiz</title>
+
+<!-- Fontlar: Fraunces (editöryel serif) + Instrument Sans (gövde) -->
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Fraunces:ital,opsz,wght@0,9..144,300;0,9..144,400;0,9..144,500;0,9..144,600;1,9..144,300;1,9..144,400&family=Instrument+Sans:ital,wght@0,400;0,500;0,600;1,400&display=swap" rel="stylesheet">
+
+<style>
+  /* =========================================================
+     KURT GMG — EDİTÖRYEL LÜKS
+     Krem zemin + derin lacivert + bakır aksan
+     ========================================================= */
+
+  :root {
+    --cream: #F5F1EA;
+    --cream-soft: #EFE9DD;
+    --cream-deep: #E8DFCC;
+    --navy: #0E1E3A;
+    --navy-deep: #08122A;
+    --copper: #B87333;
+    --copper-soft: #C68A4E;
+    --graphite: #1A1A1A;
+    --graphite-soft: #4A4A4A;
+    --line: rgba(14, 30, 58, 0.18);
+    --line-soft: rgba(14, 30, 58, 0.08);
+
+    --serif: 'Fraunces', 'Times New Roman', serif;
+    --sans: 'Instrument Sans', -apple-system, sans-serif;
+
+    --max: 1440px;
+    --pad: clamp(24px, 4vw, 80px);
+  }
+
+  *, *::before, *::after { box-sizing: border-box; margin: 0; padding: 0; }
+
+  html { scroll-behavior: smooth; }
+
+  body {
+    background: var(--cream);
+    color: var(--graphite);
+    font-family: var(--sans);
+    font-size: 17px;
+    line-height: 1.65;
+    font-weight: 400;
+    -webkit-font-smoothing: antialiased;
+    overflow-x: hidden;
+    position: relative;
+  }
+
+  /* Film grain overlay — lüks dergi hissi */
+  body::before {
+    content: '';
+    position: fixed;
+    inset: 0;
+    pointer-events: none;
+    z-index: 9999;
+    opacity: 0.045;
+    background-image: url("data:image/svg+xml;utf8,<svg xmlns='http://www.w3.org/2000/svg' width='200' height='200'><filter id='n'><feTurbulence type='fractalNoise' baseFrequency='0.9' numOctaves='3' stitchTiles='stitch'/><feColorMatrix values='0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0.7 0'/></filter><rect width='100%25' height='100%25' filter='url(%23n)'/></svg>");
+    mix-blend-mode: multiply;
+  }
+
+  ::selection { background: var(--navy); color: var(--cream); }
+
+  a { color: inherit; text-decoration: none; }
+
+  img { max-width: 100%; display: block; }
+
+  /* ========== TİPOGRAFİ ========== */
+  .display {
+    font-family: var(--serif);
+    font-weight: 300;
+    line-height: 0.95;
+    letter-spacing: -0.025em;
+    color: var(--navy);
+    font-variation-settings: "opsz" 144, "SOFT" 50;
+  }
+
+  .display em {
+    font-style: italic;
+    font-weight: 300;
+    color: var(--copper);
+    font-variation-settings: "opsz" 144, "SOFT" 100;
+  }
+
+  .eyebrow {
+    font-family: var(--sans);
+    font-size: 11px;
+    font-weight: 500;
+    letter-spacing: 0.22em;
+    text-transform: uppercase;
+    color: var(--navy);
+    display: inline-flex;
+    align-items: center;
+    gap: 12px;
+  }
+
+  .eyebrow::before {
+    content: '';
+    width: 28px;
+    height: 1px;
+    background: var(--copper);
+  }
+
+  .lead {
+    font-family: var(--serif);
+    font-weight: 300;
+    font-size: clamp(20px, 2.2vw, 28px);
+    line-height: 1.4;
+    color: var(--graphite);
+    font-variation-settings: "opsz" 30;
+  }
+
+  .num {
+    font-family: var(--serif);
+    font-weight: 300;
+    font-style: italic;
+    color: var(--copper);
+    font-variation-settings: "opsz" 144, "SOFT" 100;
+  }
+
+  /* ========== NAVIGATION ========== */
+  .nav {
+    position: fixed;
+    top: 0; left: 0; right: 0;
+    padding: 24px var(--pad);
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    z-index: 100;
+    background: rgba(245, 241, 234, 0.85);
+    backdrop-filter: blur(16px);
+    -webkit-backdrop-filter: blur(16px);
+    border-bottom: 1px solid var(--line-soft);
+    transition: padding 0.4s ease;
+  }
+
+  .nav.scrolled { padding: 16px var(--pad); }
+
+  .brand {
+    font-family: var(--serif);
+    font-size: 22px;
+    font-weight: 400;
+    letter-spacing: -0.01em;
+    color: var(--navy);
+    display: flex;
+    align-items: baseline;
+    gap: 10px;
+  }
+  .brand span {
+    font-size: 10px;
+    font-family: var(--sans);
+    font-weight: 500;
+    letter-spacing: 0.2em;
+    text-transform: uppercase;
+    color: var(--copper);
+    border-left: 1px solid var(--copper);
+    padding-left: 10px;
+  }
+
+  .nav-links {
+    display: flex;
+    gap: 36px;
+    list-style: none;
+    font-size: 13px;
+    letter-spacing: 0.05em;
+  }
+  .nav-links a {
+    position: relative;
+    color: var(--navy);
+    font-weight: 500;
+    transition: color 0.3s;
+  }
+  .nav-links a::after {
+    content: '';
+    position: absolute;
+    bottom: -6px; left: 0;
+    width: 0; height: 1px;
+    background: var(--copper);
+    transition: width 0.4s ease;
+  }
+  .nav-links a:hover::after { width: 100%; }
+  .nav-links a:hover { color: var(--copper); }
+
+  .nav-cta {
+    font-family: var(--serif);
+    font-style: italic;
+    font-size: 14px;
+    color: var(--navy);
+    border-bottom: 1px solid var(--copper);
+    padding-bottom: 2px;
+  }
+
+  /* ========== HERO ========== */
+  .hero {
+    min-height: 100vh;
+    padding: 160px var(--pad) 80px;
+    display: grid;
+    grid-template-columns: 1fr;
+    align-content: end;
+    position: relative;
+    overflow: hidden;
+  }
+
+  .hero-grid {
+    display: grid;
+    grid-template-columns: 1fr;
+    gap: 60px;
+    max-width: var(--max);
+    width: 100%;
+    margin: 0 auto;
+  }
+
+  .hero-meta {
+    display: flex;
+    justify-content: space-between;
+    align-items: flex-end;
+    flex-wrap: wrap;
+    gap: 30px;
+    padding-bottom: 30px;
+    border-bottom: 1px solid var(--line);
+  }
+
+  .hero-meta-left {
+    font-size: 13px;
+    letter-spacing: 0.12em;
+    text-transform: uppercase;
+    color: var(--graphite-soft);
+    line-height: 1.8;
+  }
+
+  .hero-meta-right {
+    text-align: right;
+    font-family: var(--serif);
+    font-style: italic;
+    font-size: 15px;
+    color: var(--graphite);
+    max-width: 280px;
+  }
+
+  .hero-title {
+    font-size: clamp(56px, 11vw, 180px);
+    line-height: 0.92;
+  }
+
+  .hero-title .line {
+    display: block;
+    overflow: hidden;
+  }
+  .hero-title .line span {
+    display: inline-block;
+    transform: translateY(110%);
+    animation: rise 1.2s cubic-bezier(0.2, 0.8, 0.2, 1) forwards;
+  }
+  .hero-title .line:nth-child(2) span { animation-delay: 0.15s; }
+  .hero-title .line:nth-child(3) span { animation-delay: 0.3s; }
+
+  @keyframes rise {
+    to { transform: translateY(0); }
+  }
+
+  .hero-bottom {
+    display: grid;
+    grid-template-columns: 1fr 1fr;
+    gap: 60px;
+    align-items: end;
+    margin-top: 40px;
+  }
+
+  .hero-bottom .lead {
+    max-width: 480px;
+    opacity: 0;
+    animation: fadeIn 1.4s ease forwards;
+    animation-delay: 0.8s;
+  }
+
+  @keyframes fadeIn {
+    to { opacity: 1; }
+  }
+
+  .scroll-indicator {
+    justify-self: end;
+    text-align: right;
+    font-size: 11px;
+    letter-spacing: 0.2em;
+    text-transform: uppercase;
+    color: var(--graphite-soft);
+    opacity: 0;
+    animation: fadeIn 1.4s ease forwards;
+    animation-delay: 1.2s;
+  }
+  .scroll-indicator::after {
+    content: '';
+    display: block;
+    width: 1px;
+    height: 60px;
+    background: var(--copper);
+    margin: 16px 0 0 auto;
+    animation: scrollHint 2.5s ease-in-out infinite;
+    transform-origin: top;
+  }
+
+  @keyframes scrollHint {
+    0%, 100% { transform: scaleY(0.3); }
+    50% { transform: scaleY(1); }
+  }
+
+  /* Decorative circle in hero */
+  .hero-decor {
+    position: absolute;
+    top: 50%; right: -200px;
+    transform: translateY(-50%);
+    width: 600px; height: 600px;
+    border: 1px solid var(--copper);
+    border-radius: 50%;
+    opacity: 0.15;
+    pointer-events: none;
+  }
+  .hero-decor::before {
+    content: '';
+    position: absolute;
+    inset: 80px;
+    border: 1px solid var(--navy);
+    border-radius: 50%;
+    opacity: 0.4;
+  }
+
+  /* ========== SECTION GENERIC ========== */
+  section {
+    padding: 140px var(--pad);
+    max-width: var(--max);
+    margin: 0 auto;
+    position: relative;
+  }
+
+  .section-head {
+    display: grid;
+    grid-template-columns: 200px 1fr;
+    gap: 60px;
+    align-items: start;
+    margin-bottom: 80px;
+    padding-bottom: 30px;
+    border-bottom: 1px solid var(--line);
+  }
+
+  .section-head-left .num-large {
+    font-family: var(--serif);
+    font-style: italic;
+    font-weight: 300;
+    font-size: 80px;
+    color: var(--copper);
+    line-height: 1;
+    font-variation-settings: "opsz" 144, "SOFT" 100;
+  }
+  .section-head-left .eyebrow { margin-top: 16px; }
+
+  .section-head-right h2 {
+    font-family: var(--serif);
+    font-weight: 300;
+    font-size: clamp(40px, 6vw, 84px);
+    line-height: 1;
+    letter-spacing: -0.025em;
+    color: var(--navy);
+  }
+  .section-head-right h2 em {
+    font-style: italic;
+    color: var(--copper);
+    font-weight: 300;
+  }
+
+  /* ========== MANIFESTO ========== */
+  .manifesto {
+    background: var(--navy);
+    color: var(--cream);
+    padding: 160px var(--pad);
+    margin-top: 60px;
+    position: relative;
+    overflow: hidden;
+  }
+
+  .manifesto-inner {
+    max-width: var(--max);
+    margin: 0 auto;
+  }
+
+  .manifesto .eyebrow { color: var(--copper); }
+  .manifesto .eyebrow::before { background: var(--copper); }
+
+  .manifesto-quote {
+    font-family: var(--serif);
+    font-weight: 300;
+    font-size: clamp(36px, 5.5vw, 76px);
+    line-height: 1.1;
+    letter-spacing: -0.02em;
+    margin: 60px 0;
+    max-width: 1100px;
+  }
+  .manifesto-quote em {
+    font-style: italic;
+    color: var(--copper-soft);
+  }
+
+  .manifesto-cite {
+    font-size: 13px;
+    letter-spacing: 0.18em;
+    text-transform: uppercase;
+    color: rgba(245, 241, 234, 0.6);
+    display: flex;
+    align-items: center;
+    gap: 14px;
+  }
+  .manifesto-cite::before {
+    content: '';
+    width: 36px;
+    height: 1px;
+    background: var(--copper);
+  }
+
+  /* ========== APPROACH (3 model) ========== */
+  .approach-grid {
+    display: grid;
+    grid-template-columns: repeat(3, 1fr);
+    gap: 1px;
+    background: var(--line);
+    border-top: 1px solid var(--line);
+    border-bottom: 1px solid var(--line);
+  }
+
+  .approach-card {
+    background: var(--cream);
+    padding: 50px 40px 60px;
+    transition: background 0.5s ease;
+    cursor: default;
+    min-height: 420px;
+    display: flex;
+    flex-direction: column;
+  }
+
+  .approach-card:hover {
+    background: var(--cream-soft);
+  }
+
+  .approach-num {
+    font-family: var(--serif);
+    font-style: italic;
+    font-weight: 300;
+    font-size: 56px;
+    color: var(--copper);
+    line-height: 1;
+    margin-bottom: 40px;
+    font-variation-settings: "opsz" 144;
+  }
+
+  .approach-card h3 {
+    font-family: var(--serif);
+    font-weight: 400;
+    font-size: 30px;
+    line-height: 1.15;
+    color: var(--navy);
+    margin-bottom: 20px;
+    letter-spacing: -0.01em;
+  }
+  .approach-card h3 em {
+    font-style: italic;
+    font-weight: 300;
+  }
+
+  .approach-card p {
+    color: var(--graphite-soft);
+    font-size: 15px;
+    line-height: 1.7;
+    flex: 1;
+  }
+
+  .approach-tag {
+    margin-top: 30px;
+    font-family: var(--serif);
+    font-style: italic;
+    font-size: 14px;
+    color: var(--navy);
+    padding-top: 20px;
+    border-top: 1px solid var(--line-soft);
+  }
+
+  /* ========== GEOGRAPHY ========== */
+  .geo-grid {
+    display: grid;
+    grid-template-columns: 1fr 1fr;
+    gap: 80px;
+    align-items: start;
+  }
+
+  .geo-list {
+    list-style: none;
+  }
+
+  .geo-item {
+    display: grid;
+    grid-template-columns: 60px 1fr auto;
+    align-items: baseline;
+    padding: 28px 0;
+    border-bottom: 1px solid var(--line);
+    transition: padding 0.4s ease;
+    cursor: default;
+  }
+  .geo-item:hover {
+    padding-left: 12px;
+  }
+  .geo-item:hover .geo-name { color: var(--copper); }
+
+  .geo-num {
+    font-family: var(--serif);
+    font-style: italic;
+    color: var(--copper);
+    font-size: 14px;
+    font-variation-settings: "opsz" 30;
+  }
+
+  .geo-name {
+    font-family: var(--serif);
+    font-weight: 400;
+    font-size: 26px;
+    color: var(--navy);
+    transition: color 0.4s;
+    letter-spacing: -0.01em;
+  }
+  .geo-name em {
+    font-style: italic;
+    font-weight: 300;
+    font-size: 16px;
+    color: var(--graphite-soft);
+    margin-left: 8px;
+  }
+
+  .geo-tag {
+    font-size: 11px;
+    letter-spacing: 0.15em;
+    text-transform: uppercase;
+    color: var(--graphite-soft);
+  }
+
+  .geo-visual {
+    position: sticky;
+    top: 120px;
+    aspect-ratio: 4/5;
+    background: var(--navy);
+    overflow: hidden;
+    position: relative;
+  }
+
+  .geo-visual::before {
+    content: '';
+    position: absolute;
+    inset: 0;
+    background-image:
+      linear-gradient(to right, rgba(184, 115, 51, 0.15) 1px, transparent 1px),
+      linear-gradient(to bottom, rgba(184, 115, 51, 0.15) 1px, transparent 1px);
+    background-size: 40px 40px;
+  }
+  .geo-visual::after {
+    content: '';
+    position: absolute;
+    inset: 0;
+    background: radial-gradient(circle at 60% 40%, transparent 0%, var(--navy-deep) 80%);
+  }
+
+  .geo-visual-content {
+    position: absolute;
+    inset: 0;
+    padding: 40px;
+    display: flex;
+    flex-direction: column;
+    justify-content: space-between;
+    color: var(--cream);
+    z-index: 1;
+  }
+  .geo-visual-label {
+    font-size: 11px;
+    letter-spacing: 0.2em;
+    text-transform: uppercase;
+    color: var(--copper);
+  }
+  .geo-visual-title {
+    font-family: var(--serif);
+    font-weight: 300;
+    font-size: 48px;
+    line-height: 1;
+    letter-spacing: -0.02em;
+  }
+  .geo-visual-title em {
+    font-style: italic;
+    color: var(--copper-soft);
+  }
+
+  /* Map dots */
+  .map-dot {
+    position: absolute;
+    width: 10px; height: 10px;
+    background: var(--copper);
+    border-radius: 50%;
+    z-index: 2;
+    box-shadow: 0 0 0 0 var(--copper);
+    animation: pulse 2.5s ease-out infinite;
+  }
+  .map-dot:nth-child(2) { animation-delay: 0.5s; }
+  .map-dot:nth-child(3) { animation-delay: 1s; }
+  .map-dot:nth-child(4) { animation-delay: 1.5s; }
+
+  @keyframes pulse {
+    0% { box-shadow: 0 0 0 0 rgba(184, 115, 51, 0.6); }
+    100% { box-shadow: 0 0 0 24px rgba(184, 115, 51, 0); }
+  }
+
+  /* ========== PROJECTS ========== */
+  .projects {
+    background: var(--cream-soft);
+  }
+
+  .project-list {
+    display: grid;
+    gap: 100px;
+    margin-top: 40px;
+  }
+
+  .project {
+    display: grid;
+    grid-template-columns: 5fr 7fr;
+    gap: 60px;
+    align-items: center;
+  }
+  .project:nth-child(even) {
+    grid-template-columns: 7fr 5fr;
+  }
+  .project:nth-child(even) .project-image-wrap {
+    order: -1;
+  }
+
+  .project-image-wrap {
+    aspect-ratio: 4/3;
+    overflow: hidden;
+    position: relative;
+    background: var(--cream-deep);
+    cursor: default;
+  }
+
+  .project-image {
+    width: 100%;
+    height: 100%;
+    object-fit: cover;
+    transition: transform 1.2s cubic-bezier(0.2, 0.8, 0.2, 1);
+    filter: saturate(0.85) contrast(1.05);
+  }
+  .project:hover .project-image {
+    transform: scale(1.05);
+  }
+
+  .project-image-wrap::after {
+    content: '';
+    position: absolute;
+    inset: 0;
+    background: linear-gradient(135deg, rgba(14, 30, 58, 0.1) 0%, transparent 50%);
+    pointer-events: none;
+  }
+
+  .project-content {
+    padding: 0 20px;
+  }
+
+  .project-meta {
+    display: flex;
+    gap: 30px;
+    font-size: 11px;
+    letter-spacing: 0.18em;
+    text-transform: uppercase;
+    color: var(--graphite-soft);
+    margin-bottom: 20px;
+    padding-bottom: 16px;
+    border-bottom: 1px solid var(--line);
+  }
+  .project-meta span:first-child {
+    color: var(--copper);
+    font-weight: 500;
+  }
+
+  .project-title {
+    font-family: var(--serif);
+    font-weight: 300;
+    font-size: clamp(32px, 4vw, 56px);
+    line-height: 1;
+    color: var(--navy);
+    margin-bottom: 24px;
+    letter-spacing: -0.02em;
+  }
+  .project-title em {
+    font-style: italic;
+    color: var(--copper);
+  }
+
+  .project-desc {
+    color: var(--graphite-soft);
+    font-size: 16px;
+    line-height: 1.75;
+    margin-bottom: 32px;
+    max-width: 480px;
+  }
+
+  .project-stats {
+    display: grid;
+    grid-template-columns: repeat(3, auto);
+    gap: 40px;
+    padding-top: 24px;
+    border-top: 1px solid var(--line-soft);
+  }
+  .project-stat-num {
+    font-family: var(--serif);
+    font-style: italic;
+    font-weight: 300;
+    font-size: 26px;
+    color: var(--copper);
+    line-height: 1;
+  }
+  .project-stat-label {
+    font-size: 10px;
+    letter-spacing: 0.18em;
+    text-transform: uppercase;
+    color: var(--graphite-soft);
+    margin-top: 4px;
+  }
+
+  /* ========== KURT GRUBU ========== */
+  .group {
+    background: var(--navy-deep);
+    color: var(--cream);
+    padding: 160px var(--pad);
+    position: relative;
+    overflow: hidden;
+  }
+
+  .group-inner {
+    max-width: var(--max);
+    margin: 0 auto;
+    display: grid;
+    grid-template-columns: 5fr 7fr;
+    gap: 100px;
+    align-items: center;
+  }
+
+  .group .eyebrow { color: var(--copper); }
+  .group .eyebrow::before { background: var(--copper); }
+
+  .group h2 {
+    font-family: var(--serif);
+    font-weight: 300;
+    font-size: clamp(40px, 5.5vw, 72px);
+    line-height: 1;
+    letter-spacing: -0.025em;
+    color: var(--cream);
+    margin: 30px 0;
+  }
+  .group h2 em {
+    font-style: italic;
+    color: var(--copper-soft);
+  }
+
+  .group p {
+    color: rgba(245, 241, 234, 0.75);
+    font-size: 17px;
+    line-height: 1.8;
+    max-width: 460px;
+  }
+
+  .group-divisions {
+    display: grid;
+    grid-template-columns: 1fr 1fr;
+    gap: 1px;
+    background: rgba(245, 241, 234, 0.12);
+    border: 1px solid rgba(245, 241, 234, 0.12);
+  }
+
+  .group-division {
+    background: var(--navy-deep);
+    padding: 40px 32px;
+    transition: background 0.5s;
+    min-height: 200px;
+    display: flex;
+    flex-direction: column;
+    justify-content: space-between;
+  }
+  .group-division:hover {
+    background: var(--navy);
+  }
+
+  .group-division-num {
+    font-family: var(--serif);
+    font-style: italic;
+    font-size: 18px;
+    color: var(--copper);
+  }
+  .group-division-name {
+    font-family: var(--serif);
+    font-weight: 400;
+    font-size: 24px;
+    color: var(--cream);
+    line-height: 1.15;
+    letter-spacing: -0.01em;
+  }
+  .group-division-name em {
+    font-style: italic;
+    font-weight: 300;
+  }
+  .group-division-desc {
+    font-size: 12px;
+    letter-spacing: 0.1em;
+    text-transform: uppercase;
+    color: rgba(245, 241, 234, 0.5);
+    margin-top: 12px;
+  }
+
+  /* ========== STATS / NUMBERS ========== */
+  .stats {
+    padding: 140px var(--pad);
+    max-width: var(--max);
+    margin: 0 auto;
+  }
+  .stats-grid {
+    display: grid;
+    grid-template-columns: repeat(4, 1fr);
+    gap: 1px;
+    background: var(--line);
+    border-top: 1px solid var(--navy);
+    border-bottom: 1px solid var(--navy);
+  }
+  .stat {
+    background: var(--cream);
+    padding: 60px 30px;
+    text-align: left;
+  }
+  .stat-num {
+    font-family: var(--serif);
+    font-weight: 300;
+    font-size: clamp(56px, 7vw, 100px);
+    line-height: 1;
+    color: var(--navy);
+    letter-spacing: -0.04em;
+    font-variation-settings: "opsz" 144;
+  }
+  .stat-num em {
+    font-style: italic;
+    color: var(--copper);
+    font-weight: 300;
+  }
+  .stat-num sup {
+    font-size: 0.4em;
+    color: var(--copper);
+    font-style: italic;
+    vertical-align: top;
+    margin-left: 4px;
+  }
+  .stat-label {
+    margin-top: 20px;
+    font-size: 12px;
+    letter-spacing: 0.18em;
+    text-transform: uppercase;
+    color: var(--graphite-soft);
+    line-height: 1.6;
+  }
+
+  /* ========== CONTACT ========== */
+  .contact {
+    background: var(--cream-soft);
+    padding: 160px var(--pad);
+  }
+  .contact-inner {
+    max-width: var(--max);
+    margin: 0 auto;
+    display: grid;
+    grid-template-columns: 1fr 1fr;
+    gap: 100px;
+    align-items: start;
+  }
+  .contact h2 {
+    font-family: var(--serif);
+    font-weight: 300;
+    font-size: clamp(40px, 6vw, 84px);
+    line-height: 0.95;
+    letter-spacing: -0.025em;
+    color: var(--navy);
+    margin: 30px 0 40px;
+  }
+  .contact h2 em {
+    font-style: italic;
+    color: var(--copper);
+  }
+
+  .contact-info {
+    display: grid;
+    gap: 32px;
+    margin-top: 40px;
+  }
+  .contact-block {
+    padding-top: 20px;
+    border-top: 1px solid var(--line);
+  }
+  .contact-block-label {
+    font-size: 11px;
+    letter-spacing: 0.2em;
+    text-transform: uppercase;
+    color: var(--copper);
+    margin-bottom: 10px;
+  }
+  .contact-block p, .contact-block a {
+    font-family: var(--serif);
+    font-weight: 400;
+    font-size: 22px;
+    color: var(--navy);
+    line-height: 1.4;
+    letter-spacing: -0.01em;
+  }
+
+  .form {
+    display: grid;
+    gap: 24px;
+  }
+  .form-row {
+    display: grid;
+    grid-template-columns: 1fr 1fr;
+    gap: 24px;
+  }
+  .field {
+    display: flex;
+    flex-direction: column;
+  }
+  .field label {
+    font-size: 11px;
+    letter-spacing: 0.2em;
+    text-transform: uppercase;
+    color: var(--graphite-soft);
+    margin-bottom: 8px;
+  }
+  .field input,
+  .field textarea,
+  .field select {
+    background: transparent;
+    border: 0;
+    border-bottom: 1px solid var(--line);
+    padding: 10px 0 14px;
+    font-family: var(--serif);
+    font-size: 18px;
+    color: var(--navy);
+    transition: border-color 0.3s;
+    resize: none;
+  }
+  .field input:focus,
+  .field textarea:focus,
+  .field select:focus {
+    outline: none;
+    border-bottom-color: var(--copper);
+  }
+  .field textarea { min-height: 120px; }
+
+  .submit {
+    margin-top: 16px;
+    background: var(--navy);
+    color: var(--cream);
+    border: 0;
+    padding: 22px 40px;
+    font-family: var(--sans);
+    font-size: 12px;
+    font-weight: 500;
+    letter-spacing: 0.22em;
+    text-transform: uppercase;
+    cursor: pointer;
+    justify-self: start;
+    transition: background 0.4s, transform 0.4s;
+    position: relative;
+    overflow: hidden;
+  }
+  .submit::after {
+    content: '→';
+    margin-left: 12px;
+    font-size: 16px;
+    transition: transform 0.4s;
+    display: inline-block;
+  }
+  .submit:hover { background: var(--copper); }
+  .submit:hover::after { transform: translateX(6px); }
+
+  /* ========== FOOTER ========== */
+  footer {
+    background: var(--navy-deep);
+    color: var(--cream);
+    padding: 80px var(--pad) 40px;
+  }
+  .footer-inner {
+    max-width: var(--max);
+    margin: 0 auto;
+  }
+  .footer-top {
+    display: grid;
+    grid-template-columns: 2fr 1fr 1fr 1fr;
+    gap: 60px;
+    padding-bottom: 60px;
+    border-bottom: 1px solid rgba(245, 241, 234, 0.12);
+  }
+  .footer-brand {
+    font-family: var(--serif);
+    font-weight: 300;
+    font-size: 36px;
+    color: var(--cream);
+    letter-spacing: -0.01em;
+  }
+  .footer-brand em {
+    font-style: italic;
+    color: var(--copper);
+    font-size: 14px;
+    font-weight: 400;
+    display: block;
+    margin-top: 8px;
+    letter-spacing: 0;
+  }
+  .footer-tagline {
+    color: rgba(245, 241, 234, 0.55);
+    font-size: 13px;
+    line-height: 1.7;
+    margin-top: 20px;
+    max-width: 320px;
+  }
+  .footer-col h4 {
+    font-family: var(--sans);
+    font-size: 11px;
+    letter-spacing: 0.22em;
+    text-transform: uppercase;
+    color: var(--copper);
+    margin-bottom: 24px;
+    font-weight: 500;
+  }
+  .footer-col ul {
+    list-style: none;
+    display: grid;
+    gap: 12px;
+  }
+  .footer-col a {
+    color: rgba(245, 241, 234, 0.75);
+    font-size: 14px;
+    transition: color 0.3s;
+  }
+  .footer-col a:hover { color: var(--copper); }
+  .footer-bottom {
+    margin-top: 40px;
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    font-size: 12px;
+    letter-spacing: 0.1em;
+    color: rgba(245, 241, 234, 0.4);
+  }
+
+  /* ========== REVEAL ON SCROLL ========== */
+  .reveal {
+    opacity: 0;
+    transform: translateY(40px);
+    transition: opacity 1.2s cubic-bezier(0.2, 0.8, 0.2, 1), transform 1.2s cubic-bezier(0.2, 0.8, 0.2, 1);
+  }
+  .reveal.in {
+    opacity: 1;
+    transform: translateY(0);
+  }
+
+  /* ========== RESPONSIVE ========== */
+  @media (max-width: 980px) {
+    .nav-links { display: none; }
+    .hero-bottom { grid-template-columns: 1fr; gap: 40px; }
+    .scroll-indicator { justify-self: start; text-align: left; }
+    .scroll-indicator::after { margin: 16px 0 0 0; }
+    .section-head { grid-template-columns: 1fr; gap: 24px; margin-bottom: 50px; }
+    .approach-grid { grid-template-columns: 1fr; }
+    .geo-grid { grid-template-columns: 1fr; gap: 40px; }
+    .geo-visual { position: relative; top: 0; aspect-ratio: 1/1; }
+    .project, .project:nth-child(even) { grid-template-columns: 1fr; gap: 30px; }
+    .project:nth-child(even) .project-image-wrap { order: 0; }
+    .group-inner { grid-template-columns: 1fr; gap: 50px; }
+    .stats-grid { grid-template-columns: 1fr 1fr; }
+    .contact-inner { grid-template-columns: 1fr; gap: 60px; }
+    .form-row { grid-template-columns: 1fr; }
+    .footer-top { grid-template-columns: 1fr; gap: 40px; }
+    .footer-bottom { flex-direction: column; gap: 16px; align-items: flex-start; }
+    .hero { padding: 130px 24px 60px; }
+    section { padding: 80px var(--pad); }
+    .manifesto, .group, .contact { padding: 100px var(--pad); }
+  }
+
+  @media (max-width: 600px) {
+    .hero-meta { flex-direction: column; align-items: flex-start; }
+    .hero-meta-right { text-align: left; }
+    .stats-grid { grid-template-columns: 1fr; }
+    .project-stats { gap: 24px; }
+    .nav { padding: 18px 24px; }
+    .brand { font-size: 18px; }
+    .brand span { display: none; }
+  }
+</style>
+</head>
+<body>
+
+<!-- ========== NAVIGATION ========== -->
+<nav class="nav" id="nav">
+  <a href="#" class="brand">
+    KURT <em>GMG</em><span>Gayrimenkul Geliştirme</span>
+  </a>
+  <ul class="nav-links">
+    <li><a href="#felsefe">Felsefe</a></li>
+    <li><a href="#yaklasim">Yaklaşım</a></li>
+    <li><a href="#cografya">Coğrafya</a></li>
+    <li><a href="#projeler">Projeler</a></li>
+    <li><a href="#grup">Kurt Grubu</a></li>
+  </ul>
+  <a href="#iletisim" class="nav-cta">İletişim →</a>
+</nav>
+
+<!-- ========== HERO ========== -->
+<header class="hero">
+  <div class="hero-decor"></div>
+  <div class="hero-grid">
+
+    <div class="hero-meta">
+      <div class="hero-meta-left">
+        İstanbul · Trakya · Avrupa<br>
+        Est. 1995 — 30. Yıl
+      </div>
+      <div class="hero-meta-right">
+        Kurt Grubu'nun gayrimenkul kolu. Sanayi, üretim ve yatırımın birleştiği vizyon.
+      </div>
+    </div>
+
+    <h1 class="hero-title display">
+      <span class="line"><span>Bizim için arsa,</span></span>
+      <span class="line"><span>bir <em>şehrin</em></span></span>
+      <span class="line"><span>ilk taslağıdır.</span></span>
+    </h1>
+
+    <div class="hero-bottom">
+      <p class="lead">
+        Kurt GMG, otuz yıldır arsa değil <em>vizyon</em> biriktirir. Doğru toprağı, doğru zamanda, doğru projeyle buluşturmak için kimi zaman yirmi yıl bekler; kimi zaman üzerine yeni bir mahalle kurarız — fakat hiçbir taşı amacı dışında oynatmayız.
+      </p>
+      <div class="scroll-indicator">
+        Aşağı Kaydır<br>Keşfet
+      </div>
+    </div>
+
+  </div>
+</header>
+
+<!-- ========== MANIFESTO ========== -->
+<section class="manifesto" id="felsefe">
+  <div class="manifesto-inner">
+    <span class="eyebrow reveal">Manifesto · 01</span>
+    <p class="manifesto-quote reveal">
+      Gayrimenkul, <em>aceleyle</em> kazanılmaz. Doğru toprağı bulmak bir yıl sürebilir; onu olgunlaştırmak yirmi yıl. Biz bu sabrın <em>mimarı</em>yız.
+    </p>
+    <div class="manifesto-cite reveal">Kurt GMG · Yatırım Felsefesi</div>
+  </div>
+</section>
+
+<!-- ========== APPROACH ========== -->
+<section id="yaklasim">
+  <div class="section-head">
+    <div class="section-head-left reveal">
+      <div class="num-large">02</div>
+      <span class="eyebrow">Üç Yaklaşım</span>
+    </div>
+    <div class="section-head-right reveal">
+      <h2>Tek bir araziye, <em>üç</em> farklı zaman ölçeği.</h2>
+    </div>
+  </div>
+
+  <div class="approach-grid">
+
+    <article class="approach-card reveal">
+      <div class="approach-num">i.</div>
+      <h3>Toplama &amp; <em>Bekletme</em></h3>
+      <p>
+        Stratejik bölgelerde arsa kümeleri oluşturur, gerekirse yirmi yıl bekleriz. Bizim için zaman bir maliyet değil, bir bileşik faiz aracıdır. Şehrin bize doğru büyümesini izler, yapılaşma vaktinin geldiğine birlikte karar veririz.
+      </p>
+      <div class="approach-tag">Uzun vadeli toprak yatırımı</div>
+    </article>
+
+    <article class="approach-card reveal">
+      <div class="approach-num">ii.</div>
+      <h3>Geliştirme &amp; <em>Satış</em></h3>
+      <p>
+        Olgunlaşmış arsalar üzerinde mimari olarak özgün, finansal olarak sağlam projeler inşa ederiz. Konseptten teslime kadar her aşamayı bizzat yönetir, projenin değerini piyasa değil zanaat belirler.
+      </p>
+      <div class="approach-tag">Konsept · İnşa · Teslim</div>
+    </article>
+
+    <article class="approach-card reveal">
+      <div class="approach-num">iii.</div>
+      <h3>Kat Karşılığı <em>Ortaklık</em></h3>
+      <p>
+        Doğru arsa sahipleriyle kuracağımız ortaklıkta arazinin değerini biz de ortağa da büyütürüz. Şeffaf modeller, dengeli pay yapıları, on yılı aşan referanslar ile kalıcı işbirlikleri kurarız.
+      </p>
+      <div class="approach-tag">Ortaklık · Şeffaflık · Sürdürülebilirlik</div>
+    </article>
+
+  </div>
+</section>
+
+<!-- ========== GEOGRAPHY ========== -->
+<section id="cografya">
+  <div class="section-head">
+    <div class="section-head-left reveal">
+      <div class="num-large">03</div>
+      <span class="eyebrow">Coğrafya</span>
+    </div>
+    <div class="section-head-right reveal">
+      <h2>Şehir bize doğru <em>büyüyor</em>.</h2>
+    </div>
+  </div>
+
+  <div class="geo-grid">
+    <ul class="geo-list reveal">
+      <li class="geo-item">
+        <span class="geo-num">i.</span>
+        <span class="geo-name">Yeni Havalimanı Aksı <em>İstanbul</em></span>
+        <span class="geo-tag">Stratejik Bölge</span>
+      </li>
+      <li class="geo-item">
+        <span class="geo-num">ii.</span>
+        <span class="geo-name">Durusu Park &amp; Çevresi <em>Arnavutköy</em></span>
+        <span class="geo-tag">Aktif Geliştirme</span>
+      </li>
+      <li class="geo-item">
+        <span class="geo-num">iii.</span>
+        <span class="geo-name">Kemerburgaz <em>Eyüpsultan</em></span>
+        <span class="geo-tag">Premium Konut</span>
+      </li>
+      <li class="geo-item">
+        <span class="geo-num">iv.</span>
+        <span class="geo-name">Göktürk <em>Eyüpsultan</em></span>
+        <span class="geo-tag">Premium Konut</span>
+      </li>
+      <li class="geo-item">
+        <span class="geo-num">v.</span>
+        <span class="geo-name">Trakya Hattı <em>Tekirdağ · Edirne</em></span>
+        <span class="geo-tag">Toprak Toplama</span>
+      </li>
+      <li class="geo-item">
+        <span class="geo-num">vi.</span>
+        <span class="geo-name">Avrupa <em>Seçili Lokasyonlar</em></span>
+        <span class="geo-tag">Uluslararası</span>
+      </li>
+    </ul>
+
+    <div class="geo-visual reveal">
+      <span class="map-dot" style="top: 32%; left: 38%;"></span>
+      <span class="map-dot" style="top: 28%; left: 52%;"></span>
+      <span class="map-dot" style="top: 44%; left: 30%;"></span>
+      <span class="map-dot" style="top: 60%; left: 20%;"></span>
+      <span class="map-dot" style="top: 22%; left: 64%;"></span>
+      <div class="geo-visual-content">
+        <div class="geo-visual-label">Yatırım Haritası · 2025</div>
+        <div class="geo-visual-title">İstanbul'un<br><em>kuzeybatı</em> ekseni.</div>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- ========== PROJECTS ========== -->
+<section class="projects" id="projeler">
+  <div style="max-width: var(--max); margin: 0 auto;">
+    <div class="section-head">
+      <div class="section-head-left reveal">
+        <div class="num-large">04</div>
+        <span class="eyebrow">Seçili Projeler</span>
+      </div>
+      <div class="section-head-right reveal">
+        <h2>Geliştirdiğimiz <em>bazı</em> projeler.</h2>
+      </div>
+    </div>
+
+    <div class="project-list">
+
+      <article class="project reveal">
+        <div class="project-image-wrap">
+          <img class="project-image" src="https://asistyenikoy.com/wp-content/uploads/2024/10/Durusu-2.-ev-1-2-scaled.jpg" alt="Durusu Park Evleri" loading="lazy">
+        </div>
+        <div class="project-content">
+          <div class="project-meta">
+            <span>01</span>
+            <span>Arnavutköy · İstanbul</span>
+            <span>Teslim · 2020</span>
+          </div>
+          <h3 class="project-title">Durusu Park <em>Evleri</em></h3>
+          <p class="project-desc">
+            Terkos Gölü kenarında, devlet ormanlarıyla çevrili 492.000 m²'lik düşük yoğunluklu villa yerleşimi. Yüksek tavanlı, iki katlı, gölü ve denizi bir arada izleyen müstakil villalar; İstanbul Havalimanı'na 6 dakika mesafede sakin bir mikroklima vaadi.
+          </p>
+          <div class="project-stats">
+            <div>
+              <div class="project-stat-num">492.000</div>
+              <div class="project-stat-label">m² Yerleşim</div>
+            </div>
+            <div>
+              <div class="project-stat-num">~400</div>
+              <div class="project-stat-label">m² Villa</div>
+            </div>
+            <div>
+              <div class="project-stat-num">4<sup>+1</sup></div>
+              <div class="project-stat-label">Plan Tipi</div>
+            </div>
+          </div>
+        </div>
+      </article>
+
+      <article class="project reveal">
+        <div class="project-image-wrap">
+          <img class="project-image" src="https://www.besiktassatilikvilla.com.tr/blog/uploads/images/image_750x_64a1877cd5556.jpg" alt="Çeşmeler Vadisi Evleri" loading="lazy">
+        </div>
+        <div class="project-content">
+          <div class="project-meta">
+            <span>02</span>
+            <span>Kemerburgaz · İstanbul</span>
+            <span>Teslim · Tamamlandı</span>
+          </div>
+          <h3 class="project-title">Çeşmeler Vadisi <em>Evleri</em></h3>
+          <p class="project-desc">
+            Kemerburgaz'ın yeşil dokusu içinde, vadiye yaslanmış 65 müstakil villadan oluşan aile ölçekli yaşam alanı. 330–450 m² arası geniş plan tipleri, yürüyüş parkurları, açık ve kapalı yüzme havuzları, tenis kortları ile bir bütünün parçası olarak tasarlandı.
+          </p>
+          <div class="project-stats">
+            <div>
+              <div class="project-stat-num">65</div>
+              <div class="project-stat-label">Villa</div>
+            </div>
+            <div>
+              <div class="project-stat-num">330–450</div>
+              <div class="project-stat-label">m² Aralığı</div>
+            </div>
+            <div>
+              <div class="project-stat-num">5<sup>+1</sup>—6<sup>+2</sup></div>
+              <div class="project-stat-label">Plan Tipi</div>
+            </div>
+          </div>
+        </div>
+      </article>
+
+      <article class="project reveal">
+        <div class="project-image-wrap">
+          <img class="project-image" src="https://cimka.com.tr/project/NeoVista/0.webp" alt="Neo Vista Göktürk" loading="lazy">
+        </div>
+        <div class="project-content">
+          <div class="project-meta">
+            <span>03</span>
+            <span>Göktürk · İstanbul</span>
+            <span>Teslim · 2003</span>
+          </div>
+          <h3 class="project-title">Neo <em>Vista</em></h3>
+          <p class="project-desc">
+            Göktürk Merkez'de, butik ölçekli bir konut deneyimi olarak konumlanan 87 daireli yerleşim. 35 farklı plan tipi, 50 metrelik açık yüzme havuzu, fitness ve spa, içine konumlanmış Neo Çarşı ile günlük yaşamı tek bir bütünün içinde toplayan, döneminin öncü karma kullanım örneği.
+          </p>
+          <div class="project-stats">
+            <div>
+              <div class="project-stat-num">87</div>
+              <div class="project-stat-label">Daire</div>
+            </div>
+            <div>
+              <div class="project-stat-num">114–312</div>
+              <div class="project-stat-label">m² Aralığı</div>
+            </div>
+            <div>
+              <div class="project-stat-num">35</div>
+              <div class="project-stat-label">Plan Tipi</div>
+            </div>
+          </div>
+        </div>
+      </article>
+
+      <article class="project reveal">
+        <div class="project-image-wrap">
+          <img class="project-image" src="https://bosphorusdevelopment.com/wp-content/uploads/2021/07/ArcadiumLife3-Kapak-go-rseli-1-scaled.jpg" alt="Arcadium Life Göktürk" loading="lazy">
+        </div>
+        <div class="project-content">
+          <div class="project-meta">
+            <span>04</span>
+            <span>Göktürk · İstanbul</span>
+            <span>Üç etap · 2012—2017</span>
+          </div>
+          <h3 class="project-title">Arcadium <em>Life</em></h3>
+          <p class="project-desc">
+            Göktürk'ün simgeleşmiş üç etaplı karma kullanım projesi. Yaklaşık 350 bağımsız bölüm, alt katlarda Arcadium Çarşı'nın oluşturduğu sosyal omurga, Belgrad Ormanı'na komşu konum. Konut, ticaret ve kamusal yaşamı tek bir bütünde birleştirerek bölgenin merkezini yeniden tanımladı.
+          </p>
+          <div class="project-stats">
+            <div>
+              <div class="project-stat-num">~350</div>
+              <div class="project-stat-label">Bağımsız Bölüm</div>
+            </div>
+            <div>
+              <div class="project-stat-num">75–320</div>
+              <div class="project-stat-label">m² Aralığı</div>
+            </div>
+            <div>
+              <div class="project-stat-num">3</div>
+              <div class="project-stat-label">Etap</div>
+            </div>
+          </div>
+        </div>
+      </article>
+
+      <article class="project reveal">
+        <div class="project-image-wrap">
+          <img class="project-image" src="https://cimka.com.tr/project/NeoStudio/0.webp" alt="Neo Studio Göktürk" loading="lazy">
+        </div>
+        <div class="project-content">
+          <div class="project-meta">
+            <span>05</span>
+            <span>Göktürk · İstanbul</span>
+            <span>Teslim · 2010</span>
+          </div>
+          <h3 class="project-title">Neo <em>Studio</em></h3>
+          <p class="project-desc">
+            Göktürk metro durağının tam karşısında, alt katları çarşı, üst katları konut olan kompakt karma yapı. Stüdyo plan tipinden başlayarak 2+1 birimlere uzanan 31 daire ile şehir merkezinde sade, fonksiyonel ve butik bir yaşam önerisi.
+          </p>
+          <div class="project-stats">
+            <div>
+              <div class="project-stat-num">31</div>
+              <div class="project-stat-label">Daire</div>
+            </div>
+            <div>
+              <div class="project-stat-num">50–153</div>
+              <div class="project-stat-label">m² Aralığı</div>
+            </div>
+            <div>
+              <div class="project-stat-num">4</div>
+              <div class="project-stat-label">Plan Tipi</div>
+            </div>
+          </div>
+        </div>
+      </article>
+
+    </div>
+  </div>
+</section>
+
+<!-- ========== KURT GRUBU ========== -->
+<section class="group" id="grup">
+  <div class="group-inner">
+
+    <div class="group-content reveal">
+      <span class="eyebrow">Kurt Grubu · 05</span>
+      <h2>Tek bir <em>çatı</em>, çok yönlü bir vizyon.</h2>
+      <p>
+        Kurt GMG; sanayi, üretim ve yatırım kollarıyla birbirini besleyen Kurt Grubu'nun gayrimenkul iş birimidir. Aynı çatı altındaki diğer iş kolları, projelerimizin malzeme, finans ve yönetim derinliğini güçlendirir; arsa, sadece arsa olarak değil, bir grubun bütünleşik gücüyle değerlenir.
+      </p>
+    </div>
+
+    <div class="group-divisions reveal">
+      <div class="group-division">
+        <div class="group-division-num">i.</div>
+        <div>
+          <div class="group-division-name">Gayrimenkul <em>Geliştirme</em></div>
+          <div class="group-division-desc">Kurt GMG</div>
+        </div>
+      </div>
+      <div class="group-division">
+        <div class="group-division-num">ii.</div>
+        <div>
+          <div class="group-division-name">Sanayi <em>&amp; Üretim</em></div>
+          <div class="group-division-desc">Endüstriyel Kollar</div>
+        </div>
+      </div>
+      <div class="group-division">
+        <div class="group-division-num">iii.</div>
+        <div>
+          <div class="group-division-name">Yatırım <em>&amp; Finans</em></div>
+          <div class="group-division-desc">Sermaye Yönetimi</div>
+        </div>
+      </div>
+      <div class="group-division">
+        <div class="group-division-num">iv.</div>
+        <div>
+          <div class="group-division-name">Tedarik <em>&amp; Lojistik</em></div>
+          <div class="group-division-desc">Operasyonel Destek</div>
+        </div>
+      </div>
+    </div>
+
+  </div>
+</section>
+
+<!-- ========== STATS ========== -->
+<section class="stats">
+  <div class="section-head">
+    <div class="section-head-left reveal">
+      <div class="num-large">06</div>
+      <span class="eyebrow">Rakamlarla</span>
+    </div>
+    <div class="section-head-right reveal">
+      <h2>Otuz yılın <em>sessiz</em> birikimi.</h2>
+    </div>
+  </div>
+
+  <div class="stats-grid">
+    <div class="stat reveal">
+      <div class="stat-num"><em>30</em></div>
+      <div class="stat-label">Yıllık<br>Geliştirme Tarihi</div>
+    </div>
+    <div class="stat reveal">
+      <div class="stat-num">3.2<sup>M</sup></div>
+      <div class="stat-label">m² Toplam<br>Arsa Portföyü</div>
+    </div>
+    <div class="stat reveal">
+      <div class="stat-num">42</div>
+      <div class="stat-label">Tamamlanan<br>Proje</div>
+    </div>
+    <div class="stat reveal">
+      <div class="stat-num"><em>12</em></div>
+      <div class="stat-label">Aktif<br>Geliştirme</div>
+    </div>
+  </div>
+</section>
+
+<!-- ========== CONTACT ========== -->
+<section class="contact" id="iletisim">
+  <div class="contact-inner">
+
+    <div class="reveal">
+      <span class="eyebrow">İletişim · 07</span>
+      <h2>Bir konuşma <em>başlatalım</em>.</h2>
+      <p class="lead">
+        Yatırım, ortaklık ya da projelerimiz hakkında bilgi almak için bizimle iletişime geçin. Tüm görüşmeler kurumsal gizlilik ile yürütülür.
+      </p>
+
+      <div class="contact-info">
+        <div class="contact-block">
+          <div class="contact-block-label">Genel Merkez</div>
+          <p>İstanbul, Türkiye<br><em style="font-style:italic;color:var(--copper);">Adres bilgisi yakında</em></p>
+        </div>
+        <div class="contact-block">
+          <div class="contact-block-label">Yatırımcı İlişkileri</div>
+          <a href="mailto:yatirim@kurtgmg.com">yatirim@kurtgmg.com</a>
+        </div>
+        <div class="contact-block">
+          <div class="contact-block-label">Genel İletişim</div>
+          <a href="mailto:info@kurtgmg.com">info@kurtgmg.com</a>
+        </div>
+      </div>
+    </div>
+
+    <form class="form reveal" onsubmit="event.preventDefault(); this.querySelector('.submit').textContent='Teşekkürler — en kısa sürede dönüş yapacağız.';">
+      <div class="form-row">
+        <div class="field">
+          <label>Ad Soyad</label>
+          <input type="text" required>
+        </div>
+        <div class="field">
+          <label>Şirket / Kurum</label>
+          <input type="text">
+        </div>
+      </div>
+      <div class="form-row">
+        <div class="field">
+          <label>E-posta</label>
+          <input type="email" required>
+        </div>
+        <div class="field">
+          <label>Telefon</label>
+          <input type="tel">
+        </div>
+      </div>
+      <div class="field">
+        <label>Konu</label>
+        <select>
+          <option>Yatırım Fırsatları</option>
+          <option>Kat Karşılığı Ortaklık</option>
+          <option>Proje Bilgisi</option>
+          <option>Basın &amp; Medya</option>
+          <option>Diğer</option>
+        </select>
+      </div>
+      <div class="field">
+        <label>Mesajınız</label>
+        <textarea></textarea>
+      </div>
+      <button class="submit" type="submit">Gönder</button>
+    </form>
+
+  </div>
+</section>
+
+<!-- ========== FOOTER ========== -->
+<footer>
+  <div class="footer-inner">
+    <div class="footer-top">
+      <div>
+        <div class="footer-brand">Kurt <em style="font-style:italic;">GMG · Gayrimenkul Geliştirme</em></div>
+        <p class="footer-tagline">
+          Kurt Grubu'nun gayrimenkul kolu. 1995'ten bu yana İstanbul, Trakya ve Avrupa'da arsa toplar, geliştirir ve değerlendirir.
+        </p>
+      </div>
+      <div class="footer-col">
+        <h4>Site</h4>
+        <ul>
+          <li><a href="#felsefe">Felsefe</a></li>
+          <li><a href="#yaklasim">Yaklaşım</a></li>
+          <li><a href="#cografya">Coğrafya</a></li>
+          <li><a href="#projeler">Projeler</a></li>
+        </ul>
+      </div>
+      <div class="footer-col">
+        <h4>Grup</h4>
+        <ul>
+          <li><a href="#grup">Kurt Grubu</a></li>
+          <li><a href="#grup">Sanayi</a></li>
+          <li><a href="#grup">Yatırım</a></li>
+          <li><a href="#grup">Tedarik</a></li>
+        </ul>
+      </div>
+      <div class="footer-col">
+        <h4>İletişim</h4>
+        <ul>
+          <li><a href="mailto:info@kurtgmg.com">info@kurtgmg.com</a></li>
+          <li><a href="mailto:yatirim@kurtgmg.com">yatirim@kurtgmg.com</a></li>
+          <li><a href="#iletisim">İletişim Formu</a></li>
+        </ul>
+      </div>
+    </div>
+    <div class="footer-bottom">
+      <div>© 2025 Kurt GMG. Tüm hakları saklıdır.</div>
+      <div>Kurt Grubu üyesi · Est. 1995</div>
+    </div>
+  </div>
+</footer>
+
+<script>
+  // Nav scroll effect
+  const nav = document.getElementById('nav');
+  window.addEventListener('scroll', () => {
+    nav.classList.toggle('scrolled', window.scrollY > 40);
+  });
+
+  // Reveal on scroll
+  const io = new IntersectionObserver((entries) => {
+    entries.forEach(entry => {
+      if (entry.isIntersecting) {
+        entry.target.classList.add('in');
+        io.unobserve(entry.target);
+      }
+    });
+  }, { threshold: 0.12, rootMargin: '0px 0px -60px 0px' });
+
+  document.querySelectorAll('.reveal').forEach(el => io.observe(el));
+</script>
+
+</body>
+</html>
